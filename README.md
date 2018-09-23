@@ -4,7 +4,7 @@ This is a web scrapper demo using Python and BeautifulSoup4; data display used m
 This app gets
 1. the `curent stock price` of the selected stock, and
 2. the `historical stock price` and display it in a figure 
-of some tech companies from NASDAQ.
+for some tech stocks from NASDAQ.
 
 Python 3 and Python package BeautifulSoup4 `pip install beautifulsoup4`, matplotlib `pip install -U matplotlib` need to be installed.
 
