@@ -1,4 +1,4 @@
-This is a simple demo for web scrapper using python and BeautifulSoup4.
+This is a web scrapper demo using Python and BeautifulSoup4; data display used matplotlib.
 
 # Usage
 This app gets
@@ -6,7 +6,7 @@ This app gets
 2. the `historical stock price` and display it in a figure 
 of some tech companies from NASDAQ.
 
-You can 
+Python 3 and Python package BeautifulSoup4 `pip install beautifulsoup4`, matplotlib `pip install -U matplotlib` need to be installed.
 
 Urllib is a standard python3 library to acquire HTML.
 BeautifulSoup4 get the elements from the HTML acquired.
