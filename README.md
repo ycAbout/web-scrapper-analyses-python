@@ -6,7 +6,7 @@ This app gets
 2. the `historical stock price` and display it in a figure 
 for some tech stocks from NASDAQ.
 
-Python 3 and Python package BeautifulSoup4 `pip install beautifulsoup4`, matplotlib `pip install -U matplotlib` need to be installed.
+Python 3 and Python package BeautifulSoup 4 `pip install beautifulsoup4`, matplotlib 3 `pip install -U matplotlib` need to be installed.
 
 Urllib is a standard python3 library to acquire HTML.
 BeautifulSoup4 get the elements from the HTML acquired.
