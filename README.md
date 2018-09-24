@@ -1,4 +1,4 @@
-This is a web scrapper and analysis demo using Python, BeautifulSoup4, matplotlib, numpy, and scipy.
+This is a web scrapper and data analyses demo using Python, BeautifulSoup4, matplotlib, numpy, and scipy.
 
 # Usage
 This app gets
