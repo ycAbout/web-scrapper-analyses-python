@@ -6,6 +6,9 @@ from bs4 import BeautifulSoup
 #For plot
 import matplotlib.pyplot as plt
 
+from scipy import stats
+import numpy as np
+
 
 symbols = [
   'https://www.nasdaq.com/symbol/fb',
@@ -16,6 +19,16 @@ symbols = [
   'https://www.nasdaq.com/symbol/intc',
   'https://www.nasdaq.com/symbol/amzn',
 ]
+
+#for downloaded data files
+fileName = [
+    './data/HistoricalQuotes.FB.csv',
+    './data/HistoricalQuotes.MSFT.csv',
+    './data/HistoricalQuotes.AAPL.csv',
+    './data/HistoricalQuotes.TSLA.csv',
+    './data/HistoricalQuotes.GOOGL.csv',
+]
+
 
 def getHistory(link):
   """take in a link corresponding to history price
@@ -41,11 +54,35 @@ def plot(name, x,y):
   """take in list x and list y to make a plot
   print a plot
   """
-  plt.plot(x,y)
+  x = np.array(x)
+  y = np.array(y)
+  plt.plot(x, y)
   plt.title(name)
   plt.ylabel('price')
   plt.xlabel('days before')
+
+  #liner regression
+  slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
+  plt.plot(x, intercept + slope*x, 'r', label='fitted line')
+
   plt.show()
+
+def loadData():
+  """ load Data in
+  DisPlay a plot
+  """
+  for file in fileName:
+    historyPrice = np.loadtxt(file, dtype=str, delimiter=",", skiprows=1)
+    # x for trading days
+    x = []
+    for i in range(len(historyPrice)):
+      x.append(0-i)
+    # y for price    
+    y = []
+    for item in historyPrice:
+      y.append(float(item[4].replace('"', '')))
+    plot(file, x, y)
+
 
 def main():
   for symbol in symbols:
@@ -67,8 +104,9 @@ def main():
     # y for price    
     y = []
     for item in historyPrice:
-      y.append(float(item[4]))
-
+      y.append(float(item[4].replace(',', '')))
+#    y = list(reversed(y))
     plot(name, x,y)
 
-main()
+#main()
+loadData()
