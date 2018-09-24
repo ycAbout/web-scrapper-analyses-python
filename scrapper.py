@@ -85,6 +85,8 @@ def loadData():
 
 
 def main():
+  """loop through the symbol list and display the acquired imformation
+  """
   for symbol in symbols:
     page = urllib.request.urlopen(symbol)
     soup = BeautifulSoup(page,'html.parser')
@@ -108,5 +110,5 @@ def main():
 #    y = list(reversed(y))
     plot(name, x,y)
 
-#main()
-loadData()
+main()
+#loadData()
